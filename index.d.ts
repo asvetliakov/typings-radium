@@ -81,7 +81,7 @@ declare namespace Radium {
     /**
      * Used to control internal Radium state and behavior during tests. It is only available in non-production builds.
      */
-    export interface TestMode {
+    interface RadiumTestMode {
         /**
          * Clears the global Radium state, currently only the cache of media query listeners.
          */
@@ -95,6 +95,8 @@ declare namespace Radium {
          */
         disable(): void;
     }
+    
+    var TestMode: RadiumTestMode;
 
 }
 // @Radium decorator
