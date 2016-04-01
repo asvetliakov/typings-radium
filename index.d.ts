@@ -77,6 +77,25 @@ declare namespace Radium {
      */
     export function keyframes(keyframes: StyleRules, name?: string): Object;
 
+    // Radium 0.17 Test mode
+    /**
+     * Used to control internal Radium state and behavior during tests. It is only available in non-production builds.
+     */
+    export interface TestMode {
+        /**
+         * Clears the global Radium state, currently only the cache of media query listeners.
+         */
+        clearState(): void;
+        /**
+         * Enables "test mode", which doesn’t throw or warn as much. Currently it just doesn’t throw when using addCSS without StyleRoot.
+         */
+        enable(): void;
+        /**
+         * Disables "test mode"
+         */
+        disable(): void;
+    }
+
 }
 // @Radium decorator
 declare function Radium<TElement extends Function>(component: TElement): TElement;
